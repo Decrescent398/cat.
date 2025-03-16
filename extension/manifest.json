@@ -14,10 +14,10 @@
     ],
     "action": {
     "default_popup": "popup.html",
-    "default_icon": "cat.png"
+    "default_icon": "images/cat.png"
     },
     "icons": {
-      "48": "cat.png"
+      "48": "images/cat.png"
     }
   }
   
