@@ -1,20 +1,21 @@
 {
     "manifest_version": 3,
-    "name": "cat.",
+    "name": "Cat.",
     "version": "1.0",
-    "description": "meow.",
+    "description": "Meow.",
     "permissions": [
-      "activeTab"
+      "activeTab",
+      "scripting"
     ],
     "content_scripts": [
       {
-        "matches": ["*://www.youtube.com/*"],
+        "matches": ["<all_urls>"],
         "js": ["content.js"]
       }
     ],
     "action": {
-    "default_popup": "popup.html",
-    "default_icon": "images/cat.png"
+      "default_popup": "popup.html",
+      "default_icon": "images/cat.png"
     },
     "icons": {
       "48": "images/cat.png"

@@ -1,13 +1,21 @@
-const catImageURL = "https://media.tenor.com/wPmWF1RWD6cAAAAe/sus-cat-cat-sus.png";
+const imageFolder = "images/";
 
-function replaceThumbnails() {
-  const thumbnails = document.querySelectorAll("img");
+// Fetch all images from the folder
+async function getImageList() {
+  const response = await fetch(imageFolder);
+  const text = await response.text();
+  const files = [...text.matchAll(/href="(.*?\.jpg)"/g)].map(match => match[1]);
+  return files.map(file => imageFolder + file);
+}
 
-  thumbnails.forEach(img => {
-    if (img.src.includes("ytimg")) {
-      img.src = catImageURL;
-    }
+async function replaceImages() {
+  const images = document.querySelectorAll("img");
+  const imageList = await getImageList();
+
+  images.forEach(img => {
+    const randomIndex = Math.floor(Math.random() * imageList.length);
+    img.src = imageList[randomIndex];
   });
 }
 
-setInterval(replaceThumbnails, 1000); // Runs every second to catch new thumbnails
+setInterval(replaceImages, 1000); // Runs every second to catch new images

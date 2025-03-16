@@ -1,0 +1,1 @@
+CAT. ok jk, run the main.py to webscrape pinterest images and load extension on the chrome webstore to replace all images with a geeked out cat
